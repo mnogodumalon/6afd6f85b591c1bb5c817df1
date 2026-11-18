@@ -1,0 +1,64 @@
+{
+  "version": 1,
+  "pages": [
+    {
+      "slug": "termin-abstimmen",
+      "component": "TerminAbstimmen",
+      "title": "Termin abstimmen",
+      "link_param": {
+        "name": "umfrage",
+        "entity": "umfragen",
+        "label_field": "titel"
+      },
+      "door_per_record": true,
+      "endpoints": [
+        {
+          "entity": "umfragen",
+          "op": "list",
+          "fields": [
+            "titel",
+            "beschreibung",
+            "ort",
+            "status"
+          ],
+          "max_records": 100
+        },
+        {
+          "entity": "terminvorschlaege",
+          "op": "list",
+          "fields": [
+            "umfrage",
+            "beginn",
+            "ende"
+          ],
+          "max_records": 500
+        },
+        {
+          "entity": "antworten",
+          "op": "list",
+          "fields": [
+            "umfrage",
+            "terminvorschlag",
+            "vorname",
+            "nachname",
+            "antwort"
+          ],
+          "max_records": 500
+        },
+        {
+          "entity": "antworten",
+          "op": "create",
+          "fields": [
+            "umfrage",
+            "terminvorschlag",
+            "vorname",
+            "nachname",
+            "antwort",
+            "zeilen_kennung"
+          ],
+          "key_field": "zeilen_kennung"
+        }
+      ]
+    }
+  ]
+}
